@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.allianz'
+version = '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+def cucumberVersion = '7.0.0'
+def junitVersion = '5.10.0'
+def selenideVersion = '6.19.0'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
+    testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+
+    implementation "com.codeborne:selenide:${selenideVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}
