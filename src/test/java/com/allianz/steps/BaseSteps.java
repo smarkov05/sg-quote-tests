@@ -17,7 +17,7 @@ public class BaseSteps {
     @BeforeAll
     public static void setUpSelenide() {
         Configuration.browser = "chrome";
-        Configuration.headless = true;
+        Configuration.headless = false;
         Configuration.timeout = Duration.of(120, ChronoUnit.SECONDS).toMillis();
     }
 
